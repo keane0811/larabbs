@@ -119,6 +119,17 @@ body {
   }
 }
 
+// reply list
+.topic-reply {
+  a {
+    color: inherit;
+  }
+  .meta {
+    font-size: 0.9em;
+    color: #b3b3b3;
+  }
+}
+
 // add container and footer space
 #app>div.container {
   margin-bottom: 100px;
