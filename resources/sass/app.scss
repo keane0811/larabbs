@@ -130,6 +130,20 @@ body {
   }
 }
 
+// notifications
+.notification-badge {
+  .badge {
+    font-size: 12px;
+    margin-top: 14px;
+  }
+  .badge-secondary {
+    background-color: #e8e8e8;
+  }
+  .badge-hint {
+    background-color: #d15b47 !important;
+  }
+}
+
 // add container and footer space
 #app>div.container {
   margin-bottom: 100px;
