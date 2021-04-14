@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable implements MustVerifyEmailContract
 {
@@ -84,5 +85,23 @@ class User extends Authenticatable implements MustVerifyEmailContract
         $this->notification_count = 0;
         $this->save();
         $this->unreadNotifications->markAsRead();
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        // 如果值的长度等于60, 即认为是已经做过加密的情况
+        if (strlen($value) != 60) {
+            $value = bcrypt($value);
+        }
+        $this->attributes['password'] = $value;
+    }
+
+    public function setAvatarAttribute($path)
+    {
+        // 如果不是http子串开头的, 就是从后台上传的, 需要补全URL
+        if (!Str::startsWith($path, 'http')) {
+            $path = config('app.url') . '/uploads/images/avatars/' . $path;
+        }
+        $this->attributes['avatar'] = $path;
     }
 }
