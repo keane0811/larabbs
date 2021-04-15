@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
 
 return [
     'title' => '权限',
