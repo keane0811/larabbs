@@ -12,7 +12,7 @@
     @endforeach
   </ul>
 @else
-  <div class="empty-block">暂无数据 ~_~</div>
+  <div class="empty-block mt-4">暂无数据 ~_~</div>
 @endif
 
 <div class="mt-4 pt-1">
